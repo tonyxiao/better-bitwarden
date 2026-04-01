@@ -12,9 +12,9 @@ runMain(
       description: "Better Bitwarden CLI — sends, attachments, archiving, collections",
     },
     subCommands: {
-      list: listCommand,
-      send: sendCommand,   // leaf command: bbw send <query> [--mode ...]
-      collection: collectionCommand,
+      list: listCommand,       // bbw list attachments
+      send: sendCommand,       // bbw send <query> [--mode ...]
+      collection: collectionCommand, // bbw collection archive <id>
     },
   })
 );

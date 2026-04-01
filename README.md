@@ -72,33 +72,24 @@ bbw send a1b2c3d4-e5f6-7890-abcd-ef1234567890 --mode body
 
 ---
 
-### `bbw list attachments`
+### `bbw list`
 
 List all vault items that have file attachments, with file names and sizes.
 
-### `bbw list collections`
-
-List all accessible collections with their IDs and organization IDs.
+> For collections, use `bw list collections` directly.
 
 ---
 
-### `bbw collection archive <collectionId> --org <orgId>`
+### `bbw collection <collectionId> --org <orgId>`
 
-Archive every item inside a collection.
+Bulk-archive every item inside a collection.
 
 ```sh
-bbw collection archive e0083b0c-47cf-4a16-a3a1-b3f50000e6b5 \
+bbw collection e0083b0c-47cf-4a16-a3a1-b3f50000e6b5 \
   --org 4443283a-1e59-4e2e-8ffb-b13b0154f92d
 ```
 
-### `bbw collection delete <collectionId> --org <orgId>`
-
-Delete a collection. Items inside move to **Unassigned** in the Admin Console.
-
-```sh
-bbw collection delete 1c857a5f-fb99-46fc-8ea4-b213006541db \
-  --org 7c3ef2b6-e99d-4031-b194-acfa012f2ec7
-```
+> To delete a collection afterwards, use `bw delete org-collection <id> --organizationid <orgId>` directly.
 
 ---
 

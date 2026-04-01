@@ -1,7 +1,7 @@
 import { defineCommand } from "citty";
-import { listItems, listCollections } from "../bw.js";
+import { listItems } from "../bw.js";
 
-const attachmentsCommand = defineCommand({
+export default defineCommand({
   meta: { description: "List all items that have file attachments" },
   async run() {
     const items = await listItems();
@@ -17,30 +17,5 @@ const attachmentsCommand = defineCommand({
         console.log(`    • ${att.fileName} (${att.sizeName})`);
       }
     }
-  },
-});
-
-const collectionsCommand = defineCommand({
-  meta: { description: "List all collections with id and org" },
-  async run() {
-    const collections = await listCollections();
-    if (!collections.length) {
-      console.log("No collections found.");
-      return;
-    }
-    console.log(`${collections.length} collections:\n`);
-    for (const col of collections) {
-      console.log(`  ${col.name}`);
-      console.log(`    id:  ${col.id}`);
-      console.log(`    org: ${col.organizationId}`);
-    }
-  },
-});
-
-export default defineCommand({
-  meta: { description: "List vault items" },
-  subCommands: {
-    attachments: attachmentsCommand,
-    collections: collectionsCommand,
   },
 });
